@@ -1,0 +1,29 @@
+<h2>Chat Using Nest And Socket.io!</h2>
+<div class="input">
+  There are currently {{this.rs.userCount}} users connected.
+</div>
+<div [formGroup]="userFg" class="input">
+  <div class="input">
+    <input formControlName="name" placeholder="Enter your name"/>
+  </div>
+  <div class="input" >
+    <input formControlName="message" placeholder="Enter message to send"/>
+  </div>
+</div>
+
+<div>
+  <button (click)="onSend()">Send!</button>
+</div>
+
+
+<div class="mb-1">
+  Messages:
+</div>
+
+<ng-container *ngIf="(this.rs.messageToClient$ | async) as messages">
+  <ng-container *ngFor="let msg of messages">
+    <div class="mb-1">
+      {{msg.name}} : {{msg.message}} (at {{msg.time}})
+    </div>
+  </ng-container>
+</ng-container>
