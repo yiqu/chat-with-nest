@@ -1,4 +1,15 @@
 <h2>Chat Using Nest And Socket.io!</h2>
+<div class="input">Alert Area</div>
+<div class="input">{{this.rs.currentAlert}}</div>
+<div [formGroup]="alertFg" class="input">
+  <div class="input" >
+    <input formControlName="alertText" placeholder="Enter an alert to send"/>
+  </div>
+</div>
+<div class="input">
+  <button (click)="onSendAlert()">Send!</button>
+</div>
+
 <div class="input">
   There are currently {{this.rs.userCount}} users connected.
 </div>
